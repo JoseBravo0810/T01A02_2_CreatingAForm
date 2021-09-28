@@ -6,6 +6,8 @@
 package t01a02_1_creatingaform;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -70,9 +73,22 @@ public class T01A02_1_CreatingAForm extends Application {
         // Añadimos el HBox en la primera columna y en la cuarta fila del casillero grid
         grid.add(hbBtn, 1, 4);
         
+        // Control de texto para mostrar mensaje
+        final Text actiontarget = new Text();
+        grid.add(actiontarget, 1, 6);
         
+        // Añadimos el escuchador (manejador) de eventos para darle utilidad al boton
+        // Metodo .setOnAction() se usa para registrar un handler (controlador de eventos)
+            // El cual establece el objeto, el cual al ser pulsado desencadenará el evento.
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e){
+                actiontarget.setFill(Color.FIREBRICK);
+                actiontarget.setText("Sign in button pressed");
+            }
+        });
         
-        // Codigo para crear la escena
+        // Codigo para crear la escena (Ponemos mas para ver bien el label User Name
         Scene scene = new Scene(grid, 325, 300);
         primaryStage.setScene(scene);
        
