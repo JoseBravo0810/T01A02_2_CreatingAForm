@@ -36,26 +36,11 @@ public class T01A02_1_CreatingAForm extends Application {
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-        
-        // Codigo para crear la escena
-        Scene scene = new Scene(grid, 325, 300);
-        primaryStage.setScene(scene);
-        
+
         // Le damos titulo a la escena y lo añadimos al Grid
         Text scenetitle = new Text("Welcome");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
-        
-        // Creacion del boton para recoger la accion
-        Button btn = new Button("Sign in");
-        // HBox coloca los nodos (componentes) en una fila horizontal, en lugar de en malla o rejilla _(grid)
-        HBox hbBtn = new HBox(10);
-        // Alineamos el boton abajo a la derecha
-        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-        // Añadimos en el listado de hijos de hbBtn el boton
-        hbBtn.getChildren().add(btn);
-        // Añadimos el HBox en la primera columna y en la cuarta fila del casillero grid
-        grid.add(hbBtn, 1, 4);
         
         // Creamos la etiqueta para el nombre de usuario y la añadimos al gridPane
         Label userName = new Label("User Name:");
@@ -73,6 +58,24 @@ public class T01A02_1_CreatingAForm extends Application {
         PasswordField pwBox = new PasswordField();
         grid.add(pwBox, 1, 2);
         
+        // Creacion del boton para recoger la accion
+        Button btn = new Button("Sign in");
+        // HBox coloca los nodos (componentes) en una fila horizontal, en lugar de en malla o rejilla _(grid) 
+        //De espacio pone 10 pixeles entre componente y componente
+        HBox hbBtn = new HBox(10);
+        // Alineamos el boton abajo a la derecha
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+        // Añadimos en el listado de hijos de hbBtn el boton
+        hbBtn.getChildren().add(btn);
+        // Añadimos el HBox en la primera columna y en la cuarta fila del casillero grid
+        grid.add(hbBtn, 1, 4);
+        
+        
+        
+        // Codigo para crear la escena
+        Scene scene = new Scene(grid, 325, 300);
+        primaryStage.setScene(scene);
+       
         // Con esta funcion, se pueden visualizar las lineas de la cuadricula grid
         // grid.setGridLinesVisible(true);
         
